@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'ui-material-vulcan',
+  name: 'situation',
 });
 
 Package.onUse((api) => {
