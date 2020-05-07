@@ -4,6 +4,7 @@ registerFragment(`
    fragment SituationStatesFragment on SituationState {
      _id
      createdAt
+     updatedAt
      moodboardUrl
      mood
      situation {

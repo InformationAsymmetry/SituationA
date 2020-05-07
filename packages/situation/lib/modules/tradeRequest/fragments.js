@@ -4,6 +4,7 @@ registerFragment(`
    fragment TradeRequestsFragment on TradeRequest {
      _id
      createdAt
+     updatedAt
      text
      mood
      situation {

@@ -9,6 +9,8 @@ registerFragment(`
        _id
        text
        mood
+       updatedAt
+       createdAt
      }
      situationStates {
        _id

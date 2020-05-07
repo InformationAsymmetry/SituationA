@@ -37,7 +37,7 @@ const schema = {
       type: "[TradeRequest]",
       relationship: "hasMany",
       resolver: (situation, args, context) => {
-        return context.TradeRequests.find({situationId: situation._id}).fetch();
+        return context.TradeRequests.find({situationId: situation._id}, {sort: {updatedAt: -1}}).fetch();
       }
     }
   },
@@ -52,7 +52,7 @@ const schema = {
       type: "[SituationState]",
       relationship: "hasMany",
       resolver: (situation, args, context) => {
-        return context.SituationStates.find({situationId: situation._id}).fetch();
+        return context.SituationStates.find({situationId: situation._id}, {sort: {updatedAt: -1}}).fetch();
       }
     }
   }

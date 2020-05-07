@@ -14,6 +14,14 @@ const schema = {
       return new Date();
     }
   },
+  updatedAt: {
+    type: Date,
+    optional: true,
+    canRead: ['guests'],
+    onUpdate: ({ newDocument, currentUser}) => {
+      return new Date();
+    }
+  },
   mood: {
     type: String,
     optional: true,
