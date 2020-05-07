@@ -6,6 +6,7 @@ const SituationState = ({ situation, situationState }) => {
   const [isEditing, setIsEditing] = useState(false);
   return (
     <React.Fragment>
+      <div style={{ "backgroundColor": "#FFF", textAlign: "center", borderRight: "3px solid rgb(239, 125, 0)"}}>
       {isEditing ? (
         <React.Fragment>
           <h2> <a onClick={e => setIsEditing(false)}><span style={{float: "right", cursor: "no-drop"}}>🌋</span></a></h2>
@@ -14,9 +15,10 @@ const SituationState = ({ situation, situationState }) => {
       ) : (
         <React.Fragment>
           <a onClick={e => setIsEditing(true)}><span style={{float: "right", cursor: "help"}}>🌋</span></a>
-          <a style={{ cursor: "crosshair" }} target="_blank" href={situationState.moodboardUrl}><img width="100%" src={situationState.moodboardUrl}></img></a>
+          <a style={{ cursor: "crosshair"}} target="_blank" href={situationState.moodboardUrl}><img width="66%" src={situationState.moodboardUrl}></img></a>
         </React.Fragment>
       )}
+      </div>
     </React.Fragment>
   )
 }
