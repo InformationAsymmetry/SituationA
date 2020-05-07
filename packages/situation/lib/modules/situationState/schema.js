@@ -21,20 +21,20 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  moodboardImageUrls: {
-    type: Array,
-    optional: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  "moodboardImageUrls.$": {
+  moodboardUrl: {
     type: String,
     optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  /*"moodboardImageUrls.$": {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },*/
   situationId: {
     type: String,
     optional: false,

@@ -13,7 +13,7 @@ registerFragment(`
      situationStates {
        _id
        mood
-       moodboardImageUrls
+       moodboardUrl
      }
    }
 `);

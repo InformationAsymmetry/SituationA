@@ -797,7 +797,7 @@ type SituationState {
   _id: String 
   createdAt: Date 
   mood: String 
-  moodboardImageUrls: [String] 
+  moodboardUrl: String 
   situationId: String 
   situation: Situation 
 }
@@ -867,7 +867,7 @@ input CreateSituationStateInput {
 
 input CreateSituationStateDataInput {
   mood: String 
-  moodboardImageUrls: [String] 
+  moodboardUrl: String 
   situationId: String 
 }
 
@@ -885,7 +885,7 @@ input UpsertSituationStateInput{
 
 input UpdateSituationStateDataInput {
   mood: String 
-  moodboardImageUrls: [String] 
+  moodboardUrl: String 
   situationId: String 
 }
 
@@ -898,7 +898,7 @@ input SituationStateFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   mood: String_Selector
-  moodboardImageUrls: String_Array_Selector
+  moodboardUrl: String_Selector
   situationId: String_Selector
 }
 
@@ -906,7 +906,7 @@ input SituationStateSortInput {
   _id: SortOptions
   createdAt: SortOptions
   mood: SortOptions
-  moodboardImageUrls: SortOptions
+  moodboardUrl: SortOptions
   situationId: SortOptions
 }
 
@@ -928,8 +928,8 @@ input SituationStateSelectorUniqueInput {
 type TradeRequest {
   _id: String 
   createdAt: Date 
-  text: String 
   mood: String 
+  text: String 
   situationId: String 
   situation: Situation 
 }
@@ -998,8 +998,8 @@ input CreateTradeRequestInput {
 }
 
 input CreateTradeRequestDataInput {
-  text: String 
   mood: String 
+  text: String 
   situationId: String 
 }
 
@@ -1016,8 +1016,8 @@ input UpsertTradeRequestInput{
 }
 
 input UpdateTradeRequestDataInput {
-  text: String 
   mood: String 
+  text: String 
   situationId: String 
 }
 
@@ -1029,16 +1029,16 @@ input TradeRequestFilterInput {
 
   _id: String_Selector
   createdAt: Date_Selector
-  text: String_Selector
   mood: String_Selector
+  text: String_Selector
   situationId: String_Selector
 }
 
 input TradeRequestSortInput {
   _id: SortOptions
   createdAt: SortOptions
-  text: SortOptions
   mood: SortOptions
+  text: SortOptions
   situationId: SortOptions
 }
 

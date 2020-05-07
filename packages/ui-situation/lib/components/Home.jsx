@@ -3,8 +3,8 @@ import { Components, registerComponent } from 'meteor/vulcan:core';
 
 const Home = () => (
   <React.Fragment>
-    <h1>UI Material Vulcan Starter</h1>
-    <a href={"https://github.com/Neobii/UI-Material-Vulcan-Starter.git"}>Github</a>
+    <h1>Situations List</h1>
+    <hr></hr>
     <Components.SituationList />
   </React.Fragment>
 )

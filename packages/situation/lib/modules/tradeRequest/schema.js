@@ -14,14 +14,14 @@ const schema = {
       return new Date();
     }
   },
-  text: {
+  mood: {
     type: String,
     optional: false,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
   },
-  mood: {
+  text: {
     type: String,
     optional: false,
     canRead: ['guests'],

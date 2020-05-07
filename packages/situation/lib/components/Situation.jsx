@@ -1,17 +1,20 @@
 import React from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { Components, registerComponent } from 'meteor/vulcan:core';
+import Grid from '@material-ui/core/Grid';
 
 const Situation = ({ situation }) => (
   <React.Fragment>
-    <h1>{situation.name}</h1>
-    <h3>Situation State</h3>
-    <div>
-      <Components.SituationStates situation={situation} situationStates={situation.situationStates}/>
-    </div>
-    <h3>Trade Requests</h3>
-    <div>
-      <Components.SituationTradeRequests situation={situation} tradeRequests={situation.tradeRequests}/>
-    </div>
+    <Grid container spacing={3}>
+      <Grid item xs={12} sm={6}>
+        <Components.SituationStates situation={situation} situationStates={situation.situationStates}/>
+        <Components.SmartForm collectionName="SituationStates" prefilledProps={{situationId: situation._id}} fields={["mood", "moodboardUrl"]}/>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <h3>Trade Requests</h3>
+        <Components.SituationTradeRequests situation={situation} tradeRequests={situation.tradeRequests}/>
+        <Components.SmartForm collectionName="TradeRequests" prefilledProps={{situationId: situation._id}} fields={["mood", "text"]}/>
+      </Grid>
+    </Grid>
   </React.Fragment>
 )
 
