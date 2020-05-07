@@ -14,6 +14,14 @@ const schema = {
       return new Date();
     }
   },
+  updatedAt: {
+    type: Date,
+    optional: true,
+    canRead: ['guests'],
+    onCreate: ({ newDocument, currentUser}) => {
+      return new Date();
+    }
+  },
   name: {
     type: String,
     canRead: ['guests'],
@@ -28,7 +36,8 @@ const schema = {
   },
   tradeRequests: {
     type: String,
-    optional: false,
+    optional: true,
+    hidden: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
@@ -43,7 +52,8 @@ const schema = {
   },
   situationStates: {
     type: String,
-    optional: false,
+    optional: true,
+    hidden: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],

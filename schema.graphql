@@ -660,6 +660,7 @@ input CallbackSelectorUniqueInput {
 type Situation {
   _id: String 
   createdAt: Date 
+  updatedAt: Date 
   name: String 
   mood: String 
   tradeRequests: [TradeRequest] 
@@ -763,6 +764,7 @@ input SituationFilterInput {
 
   _id: String_Selector
   createdAt: Date_Selector
+  updatedAt: Date_Selector
   name: String_Selector
   mood: String_Selector
   tradeRequests: String_Selector
@@ -772,6 +774,7 @@ input SituationFilterInput {
 input SituationSortInput {
   _id: SortOptions
   createdAt: SortOptions
+  updatedAt: SortOptions
   name: SortOptions
   mood: SortOptions
   tradeRequests: SortOptions
