@@ -656,6 +656,406 @@ input CallbackSelectorUniqueInput {
 }
 
 
+# Type for Situations
+type Situation {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  mood: String 
+  tradeRequests: [TradeRequest] 
+  situationStates: [SituationState] 
+}
+
+
+input DeleteSituationInput{
+  filter: SituationFilterInput
+  id: String
+}
+
+input SingleSituationInput {
+  # filtering
+  filter: SituationFilterInput
+  sort: SituationSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: SituationSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiSituationInput {
+
+  # filtering
+  filter: SituationFilterInput
+  sort: SituationSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleSituationOutput{
+  result: Situation
+}
+
+type  MultiSituationOutput{
+  results: [Situation]
+  totalCount: Int
+}
+
+type SituationMutationOutput{
+  data: Situation
+}
+
+input CreateSituationInput {
+  data: CreateSituationDataInput!
+}
+
+input CreateSituationDataInput {
+  name: String 
+  mood: String 
+  tradeRequests: String 
+  situationStates: String 
+}
+
+input UpdateSituationInput{
+  filter: SituationFilterInput
+  id: String
+  data: UpdateSituationDataInput!
+}
+
+input UpsertSituationInput{
+  filter: SituationFilterInput
+  id: String
+  data: UpdateSituationDataInput!
+}
+
+input UpdateSituationDataInput {
+  name: String 
+  mood: String 
+  tradeRequests: String 
+  situationStates: String 
+}
+
+input SituationFilterInput {
+  _and: [SituationFilterInput]
+  _not: SituationFilterInput
+  _or: [SituationFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  mood: String_Selector
+  tradeRequests: String_Selector
+  situationStates: String_Selector
+}
+
+input SituationSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  mood: SortOptions
+  tradeRequests: SortOptions
+  situationStates: SortOptions
+}
+
+input SituationSelectorInput {
+  _and: [SituationSelectorInput]
+  _or: [SituationSelectorInput]
+
+}
+
+input SituationSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for SituationStates
+type SituationState {
+  _id: String 
+  createdAt: Date 
+  mood: String 
+  moodboardImageUrls: [String] 
+  situationId: String 
+  situation: Situation 
+}
+
+
+input DeleteSituationStateInput{
+  filter: SituationStateFilterInput
+  id: String
+}
+
+input SingleSituationStateInput {
+  # filtering
+  filter: SituationStateFilterInput
+  sort: SituationStateSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: SituationStateSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiSituationStateInput {
+
+  # filtering
+  filter: SituationStateFilterInput
+  sort: SituationStateSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleSituationStateOutput{
+  result: SituationState
+}
+
+type  MultiSituationStateOutput{
+  results: [SituationState]
+  totalCount: Int
+}
+
+type SituationStateMutationOutput{
+  data: SituationState
+}
+
+input CreateSituationStateInput {
+  data: CreateSituationStateDataInput!
+}
+
+input CreateSituationStateDataInput {
+  mood: String 
+  moodboardImageUrls: [String] 
+  situationId: String 
+}
+
+input UpdateSituationStateInput{
+  filter: SituationStateFilterInput
+  id: String
+  data: UpdateSituationStateDataInput!
+}
+
+input UpsertSituationStateInput{
+  filter: SituationStateFilterInput
+  id: String
+  data: UpdateSituationStateDataInput!
+}
+
+input UpdateSituationStateDataInput {
+  mood: String 
+  moodboardImageUrls: [String] 
+  situationId: String 
+}
+
+input SituationStateFilterInput {
+  _and: [SituationStateFilterInput]
+  _not: SituationStateFilterInput
+  _or: [SituationStateFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  mood: String_Selector
+  moodboardImageUrls: String_Array_Selector
+  situationId: String_Selector
+}
+
+input SituationStateSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  mood: SortOptions
+  moodboardImageUrls: SortOptions
+  situationId: SortOptions
+}
+
+input SituationStateSelectorInput {
+  _and: [SituationStateSelectorInput]
+  _or: [SituationStateSelectorInput]
+
+}
+
+input SituationStateSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for TradeRequests
+type TradeRequest {
+  _id: String 
+  createdAt: Date 
+  text: String 
+  mood: String 
+  situationId: String 
+  situation: Situation 
+}
+
+
+input DeleteTradeRequestInput{
+  filter: TradeRequestFilterInput
+  id: String
+}
+
+input SingleTradeRequestInput {
+  # filtering
+  filter: TradeRequestFilterInput
+  sort: TradeRequestSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: TradeRequestSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiTradeRequestInput {
+
+  # filtering
+  filter: TradeRequestFilterInput
+  sort: TradeRequestSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleTradeRequestOutput{
+  result: TradeRequest
+}
+
+type  MultiTradeRequestOutput{
+  results: [TradeRequest]
+  totalCount: Int
+}
+
+type TradeRequestMutationOutput{
+  data: TradeRequest
+}
+
+input CreateTradeRequestInput {
+  data: CreateTradeRequestDataInput!
+}
+
+input CreateTradeRequestDataInput {
+  text: String 
+  mood: String 
+  situationId: String 
+}
+
+input UpdateTradeRequestInput{
+  filter: TradeRequestFilterInput
+  id: String
+  data: UpdateTradeRequestDataInput!
+}
+
+input UpsertTradeRequestInput{
+  filter: TradeRequestFilterInput
+  id: String
+  data: UpdateTradeRequestDataInput!
+}
+
+input UpdateTradeRequestDataInput {
+  text: String 
+  mood: String 
+  situationId: String 
+}
+
+input TradeRequestFilterInput {
+  _and: [TradeRequestFilterInput]
+  _not: TradeRequestFilterInput
+  _or: [TradeRequestFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  text: String_Selector
+  mood: String_Selector
+  situationId: String_Selector
+}
+
+input TradeRequestSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  text: SortOptions
+  mood: SortOptions
+  situationId: SortOptions
+}
+
+input TradeRequestSelectorInput {
+  _and: [TradeRequestSelectorInput]
+  _or: [TradeRequestSelectorInput]
+
+}
+
+input TradeRequestSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -674,6 +1074,24 @@ type Query {
   settings(input: MultiSettingInput):  MultiSettingOutput
   
   callbacks(input: MultiCallbackInput):  MultiCallbackOutput
+  
+  # A single Situation document fetched by ID or slug
+  situation(input: SingleSituationInput!): SingleSituationOutput
+  
+  # A list of Situation documents matching a set of query terms
+  situations(input: MultiSituationInput):  MultiSituationOutput
+  
+  # A single SituationState document fetched by ID or slug
+  situationState(input: SingleSituationStateInput!): SingleSituationStateOutput
+  
+  # A list of SituationState documents matching a set of query terms
+  situationStates(input: MultiSituationStateInput):  MultiSituationStateOutput
+  
+  # A single TradeRequest document fetched by ID or slug
+  tradeRequest(input: SingleTradeRequestInput!): SingleTradeRequestOutput
+  
+  # A list of TradeRequest documents matching a set of query terms
+  tradeRequests(input: MultiTradeRequestInput):  MultiTradeRequestOutput
   
 }
   
@@ -726,6 +1144,102 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
+
+  # Mutation for creating new Situation documents
+  createSituation(
+  input: CreateSituationInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateSituationDataInput
+) : SituationMutationOutput
+
+  # Mutation for updating a Situation document
+  updateSituation(
+  input: UpdateSituationInput,
+  "Deprecated (use 'input' field instead)."
+  selector: SituationSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateSituationDataInput 
+) : SituationMutationOutput
+
+  # Mutation for upserting a Situation document
+  upsertSituation(
+  input: UpsertSituationInput,
+  "Deprecated (use 'input' field instead)."
+  selector: SituationSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateSituationDataInput
+) : SituationMutationOutput
+
+  # Mutation for deleting a Situation document
+  deleteSituation(
+  input: DeleteSituationInput,
+  "Deprecated (use 'input' field instead)."
+  selector: SituationSelectorUniqueInput
+) : SituationMutationOutput
+
+  # Mutation for creating new SituationState documents
+  createSituationState(
+  input: CreateSituationStateInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateSituationStateDataInput
+) : SituationStateMutationOutput
+
+  # Mutation for updating a SituationState document
+  updateSituationState(
+  input: UpdateSituationStateInput,
+  "Deprecated (use 'input' field instead)."
+  selector: SituationStateSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateSituationStateDataInput 
+) : SituationStateMutationOutput
+
+  # Mutation for upserting a SituationState document
+  upsertSituationState(
+  input: UpsertSituationStateInput,
+  "Deprecated (use 'input' field instead)."
+  selector: SituationStateSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateSituationStateDataInput
+) : SituationStateMutationOutput
+
+  # Mutation for deleting a SituationState document
+  deleteSituationState(
+  input: DeleteSituationStateInput,
+  "Deprecated (use 'input' field instead)."
+  selector: SituationStateSelectorUniqueInput
+) : SituationStateMutationOutput
+
+  # Mutation for creating new TradeRequest documents
+  createTradeRequest(
+  input: CreateTradeRequestInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateTradeRequestDataInput
+) : TradeRequestMutationOutput
+
+  # Mutation for updating a TradeRequest document
+  updateTradeRequest(
+  input: UpdateTradeRequestInput,
+  "Deprecated (use 'input' field instead)."
+  selector: TradeRequestSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateTradeRequestDataInput 
+) : TradeRequestMutationOutput
+
+  # Mutation for upserting a TradeRequest document
+  upsertTradeRequest(
+  input: UpsertTradeRequestInput,
+  "Deprecated (use 'input' field instead)."
+  selector: TradeRequestSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateTradeRequestDataInput
+) : TradeRequestMutationOutput
+
+  # Mutation for deleting a TradeRequest document
+  deleteTradeRequest(
+  input: DeleteTradeRequestInput,
+  "Deprecated (use 'input' field instead)."
+  selector: TradeRequestSelectorUniqueInput
+) : TradeRequestMutationOutput
 
 }
 
