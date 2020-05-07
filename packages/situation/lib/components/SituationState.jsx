@@ -14,7 +14,7 @@ const SituationState = ({ situation, situationState }) => {
       ) : (
         <React.Fragment>
           <h2><span style={{color: "gray"}}>{situationState.mood}</span> {situation.name} <a onClick={e => setIsEditing(true)}><span style={{float: "right"}}>🌋</span></a></h2>
-          <img src={situationState.moodboardUrl}></img>
+          <a style={{ cursor: "crosshair" }} target="_blank" href={situationState.moodboardUrl}><img width="100%" src={situationState.moodboardUrl}></img></a>
         </React.Fragment>
       )}
     </React.Fragment>
