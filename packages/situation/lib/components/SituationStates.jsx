@@ -23,14 +23,17 @@ const SituationStates = ({ situation, situationStates }) => {
   }
   return (
     <React.Fragment>
-      <Grid container>
-        <Grid onClick={e => prevMoodboard()} item xs={6} style={{fontSize: "60px"}}>⇚</Grid>
-        <Grid onClick={e => nextMoodboard()} item xs={6} style={{fontSize: "60px", textAlign: "right"}}>⇛</Grid>
-      </Grid>
       {situationStates.map( situationState => (
         <React.Fragment key={situationState._id}>
           {currentMoodboardIndex === situationState.index ? (
+            <React.Fragment>
+               <Grid container>
+                <Grid onClick={e => prevMoodboard()} item xs={4} style={{fontSize: "60px", color: "#FCAD56", cursor: "nw-resize"}}>⇚</Grid>
+                <Grid item xs={4} style={{cursor: "progress", lineHeight: "76px", fontSize: "35px"}}><span style={{color: "#FCAD56"}}>{situationState.mood}</span> {situation.name} </Grid>
+                <Grid onClick={e => nextMoodboard()} item xs={4} style={{fontSize: "60px", textAlign: "right", color: "#FCAD56", cursor: "ne-resize"}}>⇛</Grid>
+              </Grid>
             <Components.SituationState situation={situation} situationState={situationState}/>
+            </React.Fragment>
           ): ( null )}
         </React.Fragment>
       ))}
