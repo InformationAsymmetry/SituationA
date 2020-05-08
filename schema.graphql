@@ -663,6 +663,8 @@ type Situation {
   updatedAt: Date 
   name: String 
   mood: String 
+  isActive: String 
+  isHighlighted: String 
   tradeRequests: [TradeRequest] 
   situationStates: [SituationState] 
 }
@@ -733,6 +735,8 @@ input CreateSituationInput {
 input CreateSituationDataInput {
   name: String 
   mood: String 
+  isActive: String 
+  isHighlighted: String 
   tradeRequests: String 
   situationStates: String 
 }
@@ -752,6 +756,8 @@ input UpsertSituationInput{
 input UpdateSituationDataInput {
   name: String 
   mood: String 
+  isActive: String 
+  isHighlighted: String 
   tradeRequests: String 
   situationStates: String 
 }
@@ -767,6 +773,8 @@ input SituationFilterInput {
   updatedAt: Date_Selector
   name: String_Selector
   mood: String_Selector
+  isActive: String_Selector
+  isHighlighted: String_Selector
   tradeRequests: String_Selector
   situationStates: String_Selector
 }
@@ -777,6 +785,8 @@ input SituationSortInput {
   updatedAt: SortOptions
   name: SortOptions
   mood: SortOptions
+  isActive: SortOptions
+  isHighlighted: SortOptions
   tradeRequests: SortOptions
   situationStates: SortOptions
 }
@@ -800,6 +810,8 @@ type SituationState {
   _id: String 
   createdAt: Date 
   updatedAt: Date 
+  isActive: Boolean 
+  isHighlighted: Boolean 
   mood: String 
   moodboardUrl: String 
   situationId: String 
@@ -870,6 +882,8 @@ input CreateSituationStateInput {
 }
 
 input CreateSituationStateDataInput {
+  isActive: Boolean 
+  isHighlighted: Boolean 
   mood: String 
   moodboardUrl: String 
   situationId: String 
@@ -888,6 +902,8 @@ input UpsertSituationStateInput{
 }
 
 input UpdateSituationStateDataInput {
+  isActive: Boolean 
+  isHighlighted: Boolean 
   mood: String 
   moodboardUrl: String 
   situationId: String 
@@ -902,6 +918,8 @@ input SituationStateFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   updatedAt: Date_Selector
+  isActive: Boolean_Selector
+  isHighlighted: Boolean_Selector
   mood: String_Selector
   moodboardUrl: String_Selector
   situationId: String_Selector
@@ -911,6 +929,8 @@ input SituationStateSortInput {
   _id: SortOptions
   createdAt: SortOptions
   updatedAt: SortOptions
+  isActive: SortOptions
+  isHighlighted: SortOptions
   mood: SortOptions
   moodboardUrl: SortOptions
   situationId: SortOptions

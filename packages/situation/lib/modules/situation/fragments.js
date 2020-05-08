@@ -5,6 +5,8 @@ registerFragment(`
      _id
      createdAt
      name
+     isActive
+     isHighlighted
      tradeRequests {
        _id
        text

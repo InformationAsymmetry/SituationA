@@ -7,9 +7,13 @@ registerFragment(`
      updatedAt
      moodboardUrl
      mood
+     isActive
+     isHighlighted
      situation {
        _id
        name
+       isActive
+       isHighlighted
      }
    }
 `);

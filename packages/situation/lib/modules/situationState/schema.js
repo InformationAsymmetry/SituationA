@@ -22,6 +22,20 @@ const schema = {
       return new Date();
     }
   },
+  isActive: {
+    type: Boolean,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  isHighlighted: {
+    type: Boolean,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   mood: {
     type: String,
     optional: true,

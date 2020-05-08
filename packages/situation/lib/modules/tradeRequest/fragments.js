@@ -10,6 +10,8 @@ registerFragment(`
      situation {
        _id
        name
+       isActive
+       isHighlighted
      }
    }
 `);

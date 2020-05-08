@@ -30,9 +30,24 @@ const schema = {
   },
   mood: {
     type: String,
+    optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
+  },
+  isActive: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  isHighlighted: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
   },
   tradeRequests: {
     type: String,

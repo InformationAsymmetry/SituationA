@@ -29,7 +29,7 @@ const SituationStates = ({ situation, situationStates }) => {
             <React.Fragment>
                <Grid container style={{ marginTop: "-8px" }}>
                 <Grid onClick={e => prevMoodboard()} item xs={1} style={{borderRight: "3px solid rgb(239, 125, 0)", borderBottom: "1px solid rgb(252, 173, 86)", textAlign: "center", fontSize: "60px", color: "#FCAD56", cursor: "nw-resize"}}>⇚</Grid>
-                <Grid item xs={10} style={{textAlign: "center", backgroundColor: "#FFF", cursor: "progress", lineHeight: "76px", fontSize: "35px"}}><span style={{color: "#FCAD56"}}>{situationState.mood}</span> {situation.name} </Grid>
+                <Grid item xs={10} style={{textAlign: "center", backgroundColor: "#FFF", cursor: "progress", lineHeight: "76px", fontSize: "60px"}}><span style={{color: "#FCAD56"}}>{situationState.mood}</span></Grid>
                 <Grid onClick={e => nextMoodboard()} item xs={1} style={{borderBottom: "1px solid rgb(252, 173, 86)", textAlign: "center", fontSize: "60px", textAlign: "center", color: "#FCAD56", cursor: "ne-resize"}}>⇛</Grid>
               </Grid>
             <Components.SituationState situation={situation} situationState={situationState}/>
