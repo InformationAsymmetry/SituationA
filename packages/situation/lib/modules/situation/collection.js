@@ -9,8 +9,8 @@ const Situations = createCollection({
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
   // mutations: yourCustomMutations // null to disable default mutations generation
   permissions: {
-    canRead: ['members'],
-    canCreate: ['members'],
+    canRead: ['members', 'admins'],
+    canCreate: ['members', 'admins'],
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
   },

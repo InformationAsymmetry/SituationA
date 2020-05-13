@@ -36,20 +36,20 @@ const schema = {
     canUpdate: ['admins']
   },
   isActive: {
-    type: String,
+    type: Boolean,
     optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   isHighlighted: {
-    type: String,
+    type: Boolean,
     optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
   },
-  tradeRequests: {
+  tr: {
     type: String,
     optional: true,
     hidden: true,
@@ -65,7 +65,7 @@ const schema = {
       }
     }
   },
-  situationStates: {
+  ss: {
     type: String,
     optional: true,
     hidden: true,

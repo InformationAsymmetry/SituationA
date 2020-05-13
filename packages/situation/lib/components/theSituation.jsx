@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
-import Grid from '@material-ui/core/Grid';
 
 const theSituation = ({ loading, results }) => {
   let situation;
@@ -25,16 +24,14 @@ const theSituation = ({ loading, results }) => {
   }
   return (
     <React.Fragment>
-      <Grid container>
-        <Grid onClick={e => prevSituation()} style={{
-            backgroundImage: "linear-gradient(transparent 50%, rgb(252, 173, 86, 1) 50%)",
-            backgroundSize: "2px 6px",
-            height: "40px",
-          }} item xs={6}><div style={{fontSize:"22px",
-          animationName: "example", animationDuration: "4s", animationIterationCount: "infinite", paddingLeft: "5px"}}>◀</div></Grid>
-        <Grid  onClick={e => nextSituation()} style={{ height: "40px", backgroundImage: "linear-gradient(transparent 50%, rgb(239, 51, 64) 50%)",
-            backgroundSize: "2px 8px", textAlign: "right", }} item xs={6}><div style={{color: "#FFF", fontSize:"22px", animationName: "example", animationDuration: "4s", animationIterationCount: "infinite", paddingRight: "5px"}}>▻</div></Grid>
-      </Grid>
+      <div className={["row"]}>
+        <div onClick={e => prevSituation()} className={["prev-situation col-xs-6"]}>
+          <div className={["arrow"]}>◀</div>
+        </div>
+        <div onClick={e => nextSituation()} className={["next-situation col-xs-6"]}>
+          <div className={["arrow"]}>▻</div>
+        </div>
+      </div>
       { situation ? (
         <Components.Situation situation={situation} tradeRequests={situation.tradeRequests}/>
       ): null }
