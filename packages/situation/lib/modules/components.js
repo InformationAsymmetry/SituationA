@@ -6,7 +6,7 @@ import '../components/SituationState';
 import '../components/SituationTradeRequests';
 import '../components/SituationTradeRequest';
 
-import '../components/SituationOperator';
+//import '../components/SituationOperator';
 
 // === kwámm ===
-import '../components/theSituation';
+// import '../components/theSituation';

@@ -15,6 +15,7 @@ vulcan:ui-material
 vulcan:debug
 vulcan:forms
 
-ui-situation
+shielkwamm:situation
+shielkwamm:ui-situation
 # vulcan:backoffice
-situation
+

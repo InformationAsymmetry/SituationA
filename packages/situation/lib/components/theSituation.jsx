@@ -1,8 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { Components, registerComponent, useMulti2 } from 'meteor/vulcan:core';
 
-const theSituation = ({ loading, results }) => {
+const theSituation = () => {
+  const { results, loading } = useMulti2({ 
+    collectionName: 'Situations', 
+    fragmentName: 'SituationsFragment',
+    input: {limit: 2}
+    
+  });
+  
   let situation;
   const [currentSituationIndex, setCurrentSituationIndex] = useState(0);
   if(!loading && results) {
@@ -39,10 +46,4 @@ const theSituation = ({ loading, results }) => {
   )
 }
 
-const options = {
-  collectionName: "Situations",
-  fragmentName: 'SituationsFragment',
-  limit: 10
-}
-
-registerComponent({ name: 'theSituation', component: theSituation, hocs: [[withMulti2, options]] });
+export default theSituation

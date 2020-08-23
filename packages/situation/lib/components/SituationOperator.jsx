@@ -1,7 +1,7 @@
 import React from 'react';
 import { Components, registerComponent } from 'meteor/vulcan:core';
 
-const SituationOperator = ({ loading, results }) => (
+const SituationOperator = () => (
   <React.Fragment>
     <h1>theSituation Operator</h1>
     <hr></hr>
@@ -11,9 +11,4 @@ const SituationOperator = ({ loading, results }) => (
   </React.Fragment>
 )
 
-const options = {
-  collectionName: "Situations",
-  fragmentName: 'SituationsFragment'
-}
-
-registerComponent({ name: 'SituationOperator', component: SituationOperator});
+export default SituationOperator

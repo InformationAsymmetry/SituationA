@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'ui-situation',
+  name: 'shielkwamm:ui-situation',
 });
 
 Package.onUse((api) => {
