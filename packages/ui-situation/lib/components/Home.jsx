@@ -1,17 +1,21 @@
 import React from 'react';
-import { Components, registerComponent, withCurrentUser } from 'meteor/vulcan:core';
+import { Components, useCurrentUser } from 'meteor/vulcan:core';
+import { SituationList } from 'meteor/shielkwamm:situation';
 
-const Home = ({ currentUser }) => (
+import { TheSituationHeader } from './TheSituationHeader'
+
+export const Home = () => {
+  const { currentUser } = useCurrentUser();
+  return (
   <React.Fragment>
-    <Components.theSituationHeader />
+    <TheSituationHeader />
     {currentUser ? (
-      <div style={{backgroundColor: "rgb(25, 138, 0)"}}>
-        <Components.SituationList />
+      <div style={{backgroundColor: 'rgb(25, 138, 0)'}}>
+        <SituationList />
       </div>
     ) : (
       <Components.AccountsLoginForm />
     )}
   </React.Fragment>
-)
-
-registerComponent({ name: 'Home', component: Home, hocs: [ withCurrentUser ]});
+  )
+}

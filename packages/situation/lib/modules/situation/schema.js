@@ -57,9 +57,9 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "tradeRequests",
-      type: "[TradeRequest]",
-      relationship: "hasMany",
+      fieldName: 'tradeRequests',
+      type: '[TradeRequest]',
+      relationship: 'hasMany',
       resolver: (situation, args, context) => {
         return context.TradeRequests.find({situationId: situation._id}, {sort: {updatedAt: -1}}).fetch();
       }
@@ -73,9 +73,9 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "situationStates",
-      type: "[SituationState]",
-      relationship: "hasMany",
+      fieldName: 'situationStates',
+      type: '[SituationState]',
+      relationship: 'hasMany',
       resolver: (situation, args, context) => {
         return context.SituationStates.find({situationId: situation._id}, {sort: {updatedAt: -1}}).fetch();
       }

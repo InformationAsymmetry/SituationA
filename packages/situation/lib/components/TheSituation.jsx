@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import { Components, registerComponent, useMulti2 } from 'meteor/vulcan:core';
+import { Situation } from './Situation';
+import { useMulti2 } from 'meteor/vulcan:core';
 
-const theSituation = () => {
+export const TheSituation = () => {
   const { results, loading } = useMulti2({ 
     collectionName: 'Situations', 
     fragmentName: 'SituationsFragment',
@@ -31,19 +32,17 @@ const theSituation = () => {
   }
   return (
     <React.Fragment>
-      <div className={["row"]}>
-        <div onClick={e => prevSituation()} className={["prev-situation col-xs-6"]}>
-          <div className={["arrow"]}>◀</div>
+      <div className={['row']}>
+        <div onClick={e => prevSituation()} className={['prev-situation col-xs-6']}>
+          <div className={['arrow']}>◀</div>
         </div>
-        <div onClick={e => nextSituation()} className={["next-situation col-xs-6"]}>
-          <div className={["arrow"]}>▻</div>
+        <div onClick={e => nextSituation()} className={['next-situation col-xs-6']}>
+          <div className={['arrow']}>▻</div>
         </div>
       </div>
       { situation ? (
-        <Components.Situation situation={situation} tradeRequests={situation.tradeRequests}/>
+        <Situation situation={situation} tradeRequests={situation.tradeRequests}/>
       ): null }
     </React.Fragment>
   )
 }
-
-export default theSituation

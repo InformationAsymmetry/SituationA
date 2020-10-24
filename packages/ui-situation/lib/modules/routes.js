@@ -1,9 +1,12 @@
 import { addRoute } from 'meteor/vulcan:core';
-import theSituation from 'meteor/shielkwamm:situation';
-import SituationOperator from 'meteor/shielkwamm:situation';
+import { TheSituation } from 'meteor/shielkwamm:situation';
+import { SituationOperator } from 'meteor/shielkwamm:situation';
+import { TheSituationLayout } from '../components/TheSituationLayout';
 
+import { Home } from '../components/Home'
 
-addRoute({ name: 'home', path: '/', componentName: 'Home' });
+addRoute({ name: 'home', path: '/', component: Home });
 
 addRoute({ name: 'situationOperator', path: '/operator/theSituation', component: SituationOperator });
-addRoute({ name: 'theSituation', path: '/theSituation', component: theSituation, layoutName: 'theSituationLayout' });
+
+addRoute({ name: 'theSituation', path: '/theSituation', component: TheSituation, layoutComponent: TheSituationLayout });

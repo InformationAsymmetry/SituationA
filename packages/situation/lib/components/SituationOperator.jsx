@@ -1,7 +1,7 @@
 import React from 'react';
-import { Components, registerComponent } from 'meteor/vulcan:core';
+import { Components } from 'meteor/vulcan:core';
 
-const SituationOperator = () => (
+export const SituationOperator = () => (
   <React.Fragment>
     <h1>theSituation Operator</h1>
     <hr></hr>
@@ -10,5 +10,3 @@ const SituationOperator = () => (
     <Components.Datatable collectionName="TradeRequests"/>
   </React.Fragment>
 )
-
-export default SituationOperator

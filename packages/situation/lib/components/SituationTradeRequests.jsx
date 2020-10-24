@@ -1,12 +1,10 @@
 import React from 'react';
-import { Components, registerComponent } from 'meteor/vulcan:core';
+import { SituationTradeRequest } from './SituationTradeRequest';
 
-const SituationTradeRequests = ({ situation, tradeRequests }) => (
+export const SituationTradeRequests = ({ situation, tradeRequests }) => (
   <React.Fragment>
     {tradeRequests.map( tradeRequest => (
-      <Components.SituationTradeRequest key={tradeRequest._id} situation={situation} tradeRequest={tradeRequest}/>
+      <SituationTradeRequest key={tradeRequest._id} situation={situation} tradeRequest={tradeRequest}/>
     ))}
   </React.Fragment>
 )
-
-registerComponent({ name: 'SituationTradeRequests', component: SituationTradeRequests });

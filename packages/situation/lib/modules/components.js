@@ -1,10 +1,12 @@
-import '../components/Situation.jsx';
-import '../components/SituationList';
+export * from '../components/Situation.jsx';
+export * from '../components/SituationList';
 
-import '../components/SituationStates';
-import '../components/SituationState';
-import '../components/SituationTradeRequests';
-import '../components/SituationTradeRequest';
+export * from '../components/SituationStates';
+export * from '../components/SituationState';
+export * from '../components/SituationTradeRequests';
+export * from '../components/SituationTradeRequest';
+
+export * from '../components/TheSituation';
 
 //import '../components/SituationOperator';
 

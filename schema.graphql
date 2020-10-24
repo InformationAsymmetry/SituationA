@@ -117,6 +117,12 @@ input IntlValueInput{
   value: String
 }
 directive @intl on FIELD_DEFINITION
+type Locale {
+  id: String,
+  label: String
+  dynamic: Boolean
+  strings: JSON
+}
 
   input AuthPasswordInput {
     email: String
@@ -207,7 +213,7 @@ input SingleUserInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: UserSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -230,7 +236,7 @@ input MultiUserInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -240,7 +246,7 @@ input MultiUserInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleUserOutput{
@@ -376,7 +382,7 @@ input SingleEmailInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: EmailSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -399,7 +405,7 @@ input MultiEmailInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -409,7 +415,7 @@ input MultiEmailInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleEmailOutput{
@@ -481,7 +487,7 @@ input SingleSettingInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: SettingSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -504,7 +510,7 @@ input MultiSettingInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -514,7 +520,7 @@ input MultiSettingInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleSettingOutput{
@@ -591,7 +597,7 @@ input SingleCallbackInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: CallbackSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -614,7 +620,7 @@ input MultiCallbackInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -624,7 +630,7 @@ input MultiCallbackInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleCallbackOutput{
@@ -712,7 +718,7 @@ input SingleSituationInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: SituationSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -735,7 +741,7 @@ input MultiSituationInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -745,7 +751,7 @@ input MultiSituationInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleSituationOutput{
@@ -873,7 +879,7 @@ input SingleSituationStateInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: SituationStateSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -896,7 +902,7 @@ input MultiSituationStateInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -906,7 +912,7 @@ input MultiSituationStateInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleSituationStateOutput{
@@ -1028,7 +1034,7 @@ input SingleTradeRequestInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: TradeRequestSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -1051,7 +1057,7 @@ input MultiTradeRequestInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -1061,7 +1067,7 @@ input MultiTradeRequestInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleTradeRequestOutput{
@@ -1153,6 +1159,8 @@ input TradeRequestSelectorUniqueInput {
 type Query {
   siteData: Site
   
+  locale(localeId: String): Locale
+  
   currentUser: User
   
   getDatabaseObject(id: String): JSON
@@ -1212,128 +1220,128 @@ type Mutation {
   # Mutation for creating new User documents
   createUser(
   input: CreateUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateUserDataInput
 ) : UserMutationOutput
 
   # Mutation for updating a User document
   updateUser(
   input: UpdateUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: UserSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateUserDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateUserDataInput
 ) : UserMutationOutput
 
   # Mutation for upserting a User document
   upsertUser(
   input: UpsertUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: UserSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateUserDataInput
 ) : UserMutationOutput
 
   # Mutation for deleting a User document
   deleteUser(
   input: DeleteUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
 
   # Mutation for creating new Situation documents
   createSituation(
   input: CreateSituationInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateSituationDataInput
 ) : SituationMutationOutput
 
   # Mutation for updating a Situation document
   updateSituation(
   input: UpdateSituationInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: SituationSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateSituationDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateSituationDataInput
 ) : SituationMutationOutput
 
   # Mutation for upserting a Situation document
   upsertSituation(
   input: UpsertSituationInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: SituationSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateSituationDataInput
 ) : SituationMutationOutput
 
   # Mutation for deleting a Situation document
   deleteSituation(
   input: DeleteSituationInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: SituationSelectorUniqueInput
 ) : SituationMutationOutput
 
   # Mutation for creating new SituationState documents
   createSituationState(
   input: CreateSituationStateInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateSituationStateDataInput
 ) : SituationStateMutationOutput
 
   # Mutation for updating a SituationState document
   updateSituationState(
   input: UpdateSituationStateInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: SituationStateSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateSituationStateDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateSituationStateDataInput
 ) : SituationStateMutationOutput
 
   # Mutation for upserting a SituationState document
   upsertSituationState(
   input: UpsertSituationStateInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: SituationStateSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateSituationStateDataInput
 ) : SituationStateMutationOutput
 
   # Mutation for deleting a SituationState document
   deleteSituationState(
   input: DeleteSituationStateInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: SituationStateSelectorUniqueInput
 ) : SituationStateMutationOutput
 
   # Mutation for creating new TradeRequest documents
   createTradeRequest(
   input: CreateTradeRequestInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateTradeRequestDataInput
 ) : TradeRequestMutationOutput
 
   # Mutation for updating a TradeRequest document
   updateTradeRequest(
   input: UpdateTradeRequestInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: TradeRequestSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateTradeRequestDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateTradeRequestDataInput
 ) : TradeRequestMutationOutput
 
   # Mutation for upserting a TradeRequest document
   upsertTradeRequest(
   input: UpsertTradeRequestInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: TradeRequestSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateTradeRequestDataInput
 ) : TradeRequestMutationOutput
 
   # Mutation for deleting a TradeRequest document
   deleteTradeRequest(
   input: DeleteTradeRequestInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: TradeRequestSelectorUniqueInput
 ) : TradeRequestMutationOutput
 

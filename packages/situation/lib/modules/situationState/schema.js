@@ -64,9 +64,9 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "situation",
-      type: "Situation",
-      relationship: "hasOne"
+      fieldName: 'situation',
+      type: 'Situation',
+      relationship: 'hasOne'
     }
   }
   // userId: {

@@ -1,4 +1,4 @@
-import '../components/Home.jsx'
+export * from '../components/Home.jsx'
 
-import '../components/theSituationHeader';
-import '../components/theSituationLayout';
+export * from '../components/TheSituationHeader';
+export * from '../components/TheSituationLayout';
