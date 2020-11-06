@@ -1,12 +1,13 @@
 import React from 'react';
 import { Components } from 'meteor/vulcan:core';
 import { useState } from 'react';
+import Grid from '@material-ui/core/Grid';
 
 export const SituationState = ({ situation, situationState }) => {
   const [isEditing, setIsEditing] = useState(false);
   return (
     <React.Fragment>
-      <div style={{ 'backgroundColor': '#FFF', textAlign: 'center', borderRight: '3px solid rgb(239, 125, 0)'}}>
+      <Grid item xs={12} style={{ 'backgroundColor': '#FFF', textAlign: 'center', borderRight: '3px solid rgb(239, 125, 0)'}}>
       {isEditing ? (
         <React.Fragment>
           <h2> <a onClick={e => setIsEditing(false)}><span style={{float: 'right', cursor: 'no-drop'}}>🌋</span></a></h2>
@@ -18,7 +19,7 @@ export const SituationState = ({ situation, situationState }) => {
           <a style={{ cursor: 'crosshair'}} target="_blank" rel="noopener noreferrer" href={situationState.moodboardUrl}><img width="66%" src={situationState.moodboardUrl}></img></a>
         </React.Fragment>
       )}
-      </div>
+      </Grid>
     </React.Fragment>
   )
 }

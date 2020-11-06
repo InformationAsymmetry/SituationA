@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Situation } from './Situation';
 import { useMulti2 } from 'meteor/vulcan:core';
+import Grid from '@material-ui/core/Grid';
 
 export const TheSituation = () => {
   const { results, loading } = useMulti2({ 
@@ -32,14 +33,14 @@ export const TheSituation = () => {
   }
   return (
     <React.Fragment>
-      <div className={['row']}>
-        <div onClick={e => prevSituation()} className={['prev-situation col-xs-6']}>
-          <div className={['arrow']}>◀</div>
-        </div>
-        <div onClick={e => nextSituation()} className={['next-situation col-xs-6']}>
-          <div className={['arrow']}>▻</div>
-        </div>
-      </div>
+      <Grid container>
+        <Grid item xs={6} onClick={e => prevSituation()} className={'prev-situation'}>
+          <div className={'arrow'}>◀</div>
+        </Grid>
+        <Grid item xs={6} onClick={e => nextSituation()} className={'next-situation'}>
+          <div className={'arrow'}>▻</div>
+        </Grid>
+      </Grid>
       { situation ? (
         <Situation situation={situation} tradeRequests={situation.tradeRequests}/>
       ): null }

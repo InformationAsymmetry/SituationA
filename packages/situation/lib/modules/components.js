@@ -8,7 +8,7 @@ export * from '../components/SituationTradeRequest';
 
 export * from '../components/TheSituation';
 
-//import '../components/SituationOperator';
+export * from '../components/SituationOperator';
 
 // === kwámm ===
 // import '../components/theSituation';

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Components, registerComponent } from 'meteor/vulcan:core';
 import { useState } from 'react';
 import { SituationState } from './SituationState';
+import Grid from '@material-ui/core/Grid';
 
 export const SituationStates = ({ situation, situationStates }) => {
   let index = -1;
@@ -27,11 +27,11 @@ export const SituationStates = ({ situation, situationStates }) => {
         <React.Fragment key={situationState._id}>
           {currentMoodboardIndex === situationState.index ? (
             <React.Fragment>
-               <div className={['row']} style={{ marginTop: '-8px' }}>
-                <div className={['col-xs-1']} onClick={e => prevMoodboard()} style={{borderRight: '3px solid rgb(239, 125, 0)', borderBottom: '1px solid rgb(252, 173, 86)', textAlign: 'center', fontSize: '60px', color: '#FCAD56', cursor: 'nw-resize'}}>⇚</div>
-                <div className={['col-xs-10']} style={{textAlign: 'center', backgroundColor: '#FFF', cursor: 'progress', lineHeight: '76px', fontSize: '60px'}}><span style={{color: '#FCAD56'}}>{situationState.mood}</span></div>
-                <div className={['col-xs-1']} onClick={e => nextMoodboard()} style={{borderBottom: '1px solid rgb(252, 173, 86)', fontSize: '60px', textAlign: 'center', color: '#FCAD56', cursor: 'ne-resize'}}>⇛</div>
-              </div>
+               <Grid container style={{ marginTop: '-8px' }}>
+                <Grid item xs={1} onClick={e => prevMoodboard()} style={{borderRight: '3px solid rgb(239, 125, 0)', borderBottom: '1px solid rgb(252, 173, 86)', textAlign: 'center', fontSize: '60px', color: '#FCAD56', cursor: 'nw-resize'}}>⇚</Grid>
+                <Grid item xs={10} style={{textAlign: 'center', backgroundColor: '#FFF', cursor: 'progress', lineHeight: '76px', fontSize: '60px'}}><span style={{color: '#FCAD56'}}>{situationState.mood}</span></Grid>
+                <Grid item xs={1} onClick={e => nextMoodboard()} style={{borderBottom: '1px solid rgb(252, 173, 86)', fontSize: '60px', textAlign: 'center', color: '#FCAD56', cursor: 'ne-resize'}}>⇛</Grid>
+              </Grid>
             <SituationState situation={situation} situationState={situationState}/>
             </React.Fragment>
           ): ( null )}
