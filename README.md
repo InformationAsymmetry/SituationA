@@ -1,6 +1,5 @@
-# two_Z-rk
-+△
+# theSituation: type A
 
-*copyright 2019*
+> a place to associate words, moods, and media
 
 ![theSituation](theSituation.png)
